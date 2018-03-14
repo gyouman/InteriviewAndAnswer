@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    runAsync1(){
+       var p = new Promise(function(resolve,reject){
+           setTimeout(function(){
+               resolve('async1')
+           },2000)
+       })
+       return p
+   }
+   runAsync2(){
+       var p = new Promise(function(resolve,reject){
+           setTimeout(function(){
+               resolve('async2')
+           },2000)
+       })
+       return p
+   }
+   runAsync3(){
+       var p = new Promise(function(resolve,reject){
+           setTimeout(function(){
+               resolve('async3')
+           },2000)
+       })
+       return p
+   }
+   Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
+    console.log(results)
+   })
+</script>
+</html>

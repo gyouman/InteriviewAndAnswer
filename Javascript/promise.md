@@ -23,7 +23,7 @@
  在 runAsync()的返回上直接调用 then 方法，then接受一个参数，是函数，并且我们会拿到我们在 runAsync中调用 resove时传递的参数，运行这段代码 2s 中后输出 『执行完成』，紧接着输出『随便什么数据』  
  all的 用法
  ```javascript
-    runAsync1(){
+    function runAsync1(){
         var p = new Promise(function(resolve,reject){
             setTimeout(function(){
                 resolve('async1')
@@ -31,7 +31,7 @@
         })
         return p
     }
-    runAsync2(){
+    function runAsync2(){
         var p = new Promise(function(resolve,reject){
             setTimeout(function(){
                 resolve('async2')
@@ -39,7 +39,7 @@
         })
         return p
     }
-    runAsync3(){
+    function runAsync3(){
         var p = new Promise(function(resolve,reject){
             setTimeout(function(){
                 resolve('async3')
