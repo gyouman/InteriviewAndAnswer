@@ -31,14 +31,6 @@
         })
         return p
     }
-    runAsync1(){
-        var p = new Promise(function(resolve,reject){
-            setTimeout(function(){
-                resolve('async1')
-            },2000)
-        })
-        return p
-    }
     runAsync2(){
         var p = new Promise(function(resolve,reject){
             setTimeout(function(){
