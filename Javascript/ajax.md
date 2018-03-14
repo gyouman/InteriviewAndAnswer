@@ -11,7 +11,7 @@
         if(window.xmlHttpRequest){
             xmlHttp = new XMLHttpRequest()
         }else{
-            xmlHttp = new ActiveXObject('Micorsoft.XMLHTTP)
+            xmlHttp = new ActiveXObject('Micorsoft.XMLHTTP')
         }
         var params = []
         for(var key in opt.data){
