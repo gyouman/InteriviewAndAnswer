@@ -10,32 +10,32 @@
     
 </body>
 <script>
-    runAsync1(){
-       var p = new Promise(function(resolve,reject){
-           setTimeout(function(){
-               resolve('async1')
-           },2000)
-       })
-       return p
-   }
-   runAsync2(){
-       var p = new Promise(function(resolve,reject){
-           setTimeout(function(){
-               resolve('async2')
-           },2000)
-       })
-       return p
-   }
-   runAsync3(){
-       var p = new Promise(function(resolve,reject){
-           setTimeout(function(){
-               resolve('async3')
-           },2000)
-       })
-       return p
-   }
-   Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
-    console.log(results)
-   })
+    function runAsync1(){
+        var p = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve('async1')
+            },2000)
+        })
+        return p
+    }
+    function runAsync2(){
+        var p = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve('async2')
+            },2000)
+        })
+        return p
+    }
+    function runAsync3(){
+        var p = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                resolve('async3')
+            },2000)
+        })
+        return p
+    }
+    Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
+     console.log(results)
+    })
 </script>
 </html>
