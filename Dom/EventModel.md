@@ -19,3 +19,47 @@ DOM事件模型分为两类：
  - 父元素中所有的捕捉型事件（如果有）自上而下地执行
  - 目标元素的冒泡型事件（如果有）
  - 父元素中所有的冒泡型事件（如果有）自下而上地执行
+ ```html
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title></title>
+            <meta charset="utf-8" />
+            <style type="text/css">
+                #p { width: 300px; height: 300px; padding: 10px;  border: 1px solid black; }
+                #c { width: 100px; height: 100px; border: 1px solid red; }
+            </style>
+        </head>
+        <body>
+        <div id="p">
+            parent
+            <div id="c">
+                child
+            </div>
+        </div>
+        <script type="text/javascript">
+            var p = document.getElementById('p'),
+                c = document.getElementById('c');
+            c.addEventListener('click', function () {
+                alert('子节点捕获')
+            }, true);
+
+            c.addEventListener('click', function (e) {
+                alert('子节点冒泡')
+            }, false);
+
+            p.addEventListener('click', function () {
+                alert('父节点捕获')
+            }, true);
+
+            p.addEventListener('click', function () {
+                alert('父节点冒泡')
+            }, false);
+        </script>
+        </body>
+        </html>
+
+ ```
+ 　这个依次会打出父节点捕获,子节点捕获,子节点冒泡和父节点冒泡,(注意：如果你在目标元素上改变绑定事件的顺序, 这些事件可能就不按照捕获和冒泡的顺序来了，而是根据捕获和冒泡的顺序进行触发 , 这个有解决方法,参考:) ==>>(叶小钗的东东)http://www.cnblogs.com/yexiaochai/p/3567597.html );
+
+　　捕获的事件是按照顺序执行的, 而冒泡的事件在有的浏览器中的按照顺序执行有的按照相反的顺序执行; 
+　　说实话啊，事件捕获没啥用处
