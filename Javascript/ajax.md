@@ -1,3 +1,4 @@
+### ajax 怎么写？
 ```javascript
     function ajax(opt){
         opt = opt || {}
