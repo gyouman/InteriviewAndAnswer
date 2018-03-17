@@ -45,4 +45,6 @@ async 返回的是一个promise对象，所以在不用awati的情况下，我�
       console.log(v1,v2)
     }
 	 test()
+	 // get something  async get something
 ```
+### awati 等到Promise 对象之后，做了什么？
