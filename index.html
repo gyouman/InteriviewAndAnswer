@@ -34,8 +34,17 @@
         })
         return p
     }
-    Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
-     console.log(results)
-    })
+    // Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
+    //  console.log(results)
+    // })
+    async function testAsync() {
+        return "hello async";
+    }
+
+    const result = testAsync();
+    console.log(result);
+   
 </script>
 </html>
+
+
