@@ -10,39 +10,46 @@
     
 </body>
 <script>
-    function runAsync1(){
-        var p = new Promise(function(resolve,reject){
-            setTimeout(function(){
-                resolve('async1')
-            },2000)
+    function takeLongTime(n){
+        return new Promise((resolve)=>{
+            setTimeout(()=>resolve(n+200),n)
         })
-        return p
     }
-    function runAsync2(){
-        var p = new Promise(function(resolve,reject){
-            setTimeout(function(){
-                resolve('async2')
-            },2000)
-        })
-        return p
+    function step1(n){
+        console.log(`steop1 with ${n}`)
+        return takeLongTime(n)
     }
-    function runAsync3(){
-        var p = new Promise(function(resolve,reject){
-            setTimeout(function(){
-                resolve('async3')
-            },2000)
-        })
-        return p
+    function step2(n){
+        console.log(`step2 with ${n}`)
+        return takeLongTime(n)
     }
-    // Promise.all([runAsync1(),runAsync2(),runAsync3()]).then(function(results){
-    //  console.log(results)
-    // })
-    async function testAsync() {
-        return "hello async";
+    function step3(n){
+        console.log(`step3 with ${n}`)
+        return takeLongTime(n)
     }
-
-    const result = testAsync();
-    console.log(result);
+     /*现在用 Promise 方式来实现这三个步骤的处理*/
+    //  function doIt(){
+    //      console.time('doIt')
+    //      const time1 = 300
+    //      step1(time1)
+    //         .then(time2 => step2(time2))
+    //         .then(time3 => step3(time3))
+    //         .then(result=>{
+    //             console.log(`result is ${result}`)
+    //             console.timeEnd('doIt')
+    //         })
+    //  }
+    //  doIt()
+    async function doIt(){
+        console.time('doIt')
+        const time1 = 300
+        const time2  = await step1(time1)
+        const time3 = await step2(time2)
+        const result = await step3(time3)
+        console.log(`result is ${result}`)
+        console.timeEnd("doIt")
+    }
+    doIt()
    
 </script>
 </html>
